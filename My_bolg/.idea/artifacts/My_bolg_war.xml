@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="My_bolg:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="My_bolg-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="My_bolg:war exploded" />
+    </root>
+  </artifact>
+</component>

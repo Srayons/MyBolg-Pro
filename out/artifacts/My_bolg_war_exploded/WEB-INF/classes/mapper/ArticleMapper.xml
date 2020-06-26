@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bolg.mapper.ArticleMapper">
+    <sql id="B_article">
+          `id`,
+          `title`,
+          `content`,
+          `author_id`,
+          `menu_id`  from b_article
+    </sql>
+
+    <resultMap id="BaseMap_Article" type="com.bolg.po.Article">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="content" property="content"/>
+        <collection property="user" ofType="com.bolg.po.User">
+            <id column="id" property="id"/>
+            <result column="username" property="username"/>
+        </collection>
+        <collection property="menu" ofType="com.bolg.po.Menu">
+            <id column="id" property="id"/>
+            <result column="name" property="name"/>
+        </collection>
+    </resultMap>
+
+    <sql id="Base_Sql">
+        SELECT
+            art.`id`,art.`title`,art.`content`,u.`username`,m.`name`
+        FROM
+            b_article AS art,b_user AS u,b_menu AS m
+        WHERE
+            art.author_id=u.id AND m.`id`= art.`menu_id`
+    </sql>
+
+    <select id="select_Article" resultMap="BaseMap_Article">
+        <include refid="Base_Sql"/>
+        <if test="id!=null">
+            and
+            art.id = #{id}
+        </if>
+    </select>
+
+    <select id="select_Article_Menu_id" resultMap="BaseMap_Article">
+        <include refid="Base_Sql"/>
+        <if test="id!=null">
+            and
+            m.id = #{id}
+        </if>
+    </select>
+
+
+
+    <update id="update_Article" parameterType="Article">
+        update b_article
+        set
+            <if test="title!=null">
+                title = #{title},
+            </if>
+            <if test="content!=null">
+                content = #{content}
+            </if>
+        where id = #{id}
+    </update>
+
+</mapper>

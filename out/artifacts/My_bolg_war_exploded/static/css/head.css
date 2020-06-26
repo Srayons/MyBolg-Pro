@@ -1,0 +1,69 @@
+body{
+    background-color: beige;
+}
+.icon {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+.header-div{
+    height: 80px;
+    width: auto;
+    border: #00FFFF 0 solid;
+    background-color: beige;
+
+}
+  .header-div ul li{
+      display: inline;
+      margin: 0 10px;
+      padding: 30px 0;
+      height: 80px;
+      width: auto;
+      text-align: center;
+      font-size: 18px;
+      color: white;
+      line-height: 80px;
+      background-color: beige;
+      border: red 0 solid;
+  }
+  .header-div ul li:hover{
+      background-color: powderblue;
+  }
+  .header-div ul li a{
+      padding: 30px 25px;
+  }
+  .header-div ul li a:hover{
+      color: white;
+  }
+  #fonts{
+      width: 60px;
+      height: 60px;
+      margin: 0 30px 0 10px;
+  }
+#Art_id ul li a{
+    display: block;
+    padding: 30px 0;
+    height: 80px;
+    width: auto;
+}
+#Art_id ul li a p{
+    margin-left:180px;
+    float: left;
+    font-family: "微软雅黑 Light";
+    font-size: 20px;
+    line-height: 20px;
+}
+#Art_id ul li p font{
+    margin: 0 140px 0 0;
+}
+#img_logo{
+    width: 60px;
+    height: 60px;
+    margin-left: 180px;
+}
+iframe{
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,126 @@
+body{
+    background-color: beige;
+}
+
+/*
+    阿里巴巴图标样式
+*/
+.icon {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+
+/*
+    头部系列样式
+*/
+.header-div{
+    height: 80px;
+    width: auto;
+    border: none;
+    background-color: beige;
+
+}
+.header-div ul li{
+  display: inline;
+  margin: 0 10px;
+  padding: 30px 0;
+  height: 80px;
+  width: auto;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  line-height: 80px;
+  background-color: beige;
+  border: none;
+}
+.header-div ul li:hover{
+  background-color: powderblue;
+}
+.header-div ul li a{
+  padding: 30px 25px;
+  text-decoration: none;
+
+}
+.header-div ul li a:hover{
+  color: white;
+  text-decoration: none;
+}
+
+#fonts{
+  width: 60px;
+  height: 60px;
+  margin: 0 30px 0 10px;
+}
+/*
+当前目录样式
+*/
+#Art_Catalog{
+    position: relative;
+    margin: 0 0 0 180px;
+    top: 50px;
+    font-size: 16px;
+}
+
+/*
+    文章系列样式
+*/
+#Art_id ul li a{
+    display: block;
+    padding: 30px 0;
+    margin-top: 50px;
+    height: 150px;
+    width: auto;
+    text-decoration: none;
+    margin-left:180px;
+    font-size: 0;
+}
+
+#Art_id ul li a span{
+    display: inline-block;
+    width: auto;
+    height: 35px;
+    font-family: "微软雅黑 Light";
+    font-size: 18px;
+    line-height: 36px;
+}
+
+#img_Art{
+    width: 220px;
+    height: 150px;
+    vertical-align:middle;
+}
+
+#Get_Art_id{
+    position: relative;
+    top: 80px;
+    left: 180px;
+}
+
+/*
+    图标样式
+*/
+#img_logo{
+    width: 60px;
+    height: 60px;
+    margin-left: 180px;
+}
+
+
+/*
+    分页样式
+*/
+#Page_div{
+    position:relative;
+    left:50%;
+    top:50%;
+    margin:50px 0 0 0;
+}
+
+iframe{
+    width: 100%;
+    height: 100%;
+}

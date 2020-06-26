@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bolg.mapper.AdminMenuMapper">
+    <sql id="sql_admin_menu">
+        id,m_name,m_icon,m_pid,m_url,m_sort,m_createdate FROM admin_menu
+    </sql>
+
+    <select id="select_admin_menu" resultType="AdminMenu">
+        select
+          <include refid="sql_admin_menu"/>
+        <where>
+            <if test="m_name!=null and m_name!=''">
+                m_name = #{m_name}
+            </if>
+            <if test="m_pid!=null and m_pid!=''">
+                and m_pid = (SELECT id FROM admin_menu WHERE m_name = #{m_pid})
+            </if>
+            <if test="m_createDate!=null and m_createDate!=''">
+                and m_createDate = #{m_createDate}
+            </if>
+        </where>
+        ORDER BY m_sort ASC
+    </select>
+
+    <select id="selectById" resultType="AdminMenu">
+        select
+            <include refid="sql_admin_menu"/>
+        <where>
+            <if test="id!=null and id!=''">
+                 id = #{id}
+            </if>
+        </where>
+        ORDER BY m_sort ASC
+    </select>
+
+    <select id="selectByPId" resultType="AdminMenu">
+        select
+        <include refid="sql_admin_menu"/>
+        <where>
+            <if test="m_pid!=null and m_pid!=''">
+                m_pid = #{m_pid}
+            </if>
+        </where>
+        ORDER BY m_sort ASC
+    </select>
+
+    <update id="EditMenuById" parameterType="String">
+        update admin_menu
+          <set>
+              <if test="m_name!=null">
+                  m_name = #{m_name}
+              </if>
+              <if test="m_icon!=null">
+                  ,m_icon = #{m_icon}
+              </if>
+              <if test="m_pid!=null">
+                  ,m_pid = #{m_pid}
+              </if>
+              <if test="m_url!=null">
+                  ,m_url = #{m_url}
+              </if>
+              <if test="m_sort!=null">
+                  ,m_sort = #{m_sort}
+              </if>
+              <if test="m_createDate!=null">
+                  ,m_createDate = #{m_createDate}
+              </if>
+          </set>
+          <where>
+              <if test="id!=null">
+                  id = #{id}
+              </if>
+          </where>
+    </update>
+
+
+    <insert id="MenuAdd">
+        insert into
+          admin_menu
+        values (null,#{m_name},#{m_icon},#{m_pid},#{m_url},#{m_sort},#{m_createDate})
+    </insert>
+
+    <delete id="MenuDel">
+        delete from admin_menu where id = #{id}
+        <if test="m_pid!=null">
+            or m_pid = #{m_pid}
+        </if>
+    </delete>
+</mapper>
